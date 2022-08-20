@@ -5,7 +5,7 @@ using UnityEngine;
 using TMPro;
 public class MainMenu : MonoBehaviour
 {
-
+    // Displays the version and loads next scene in scene manager
     public TMP_Text versionTxt;
     public void play(){
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);

@@ -21,6 +21,8 @@ public class SpleefFloorGenerator : MonoBehaviour
     public LayerMask playerMask;
 
     public GameObject tile;
+    // Sets the width and height of the floor in a 2d array
+    // For each index in the 2d array it creates an instance of a tile
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +39,8 @@ public class SpleefFloorGenerator : MonoBehaviour
     {
         for(int x = 0; x < width; x+=size){
             for(int z = 0; z < height; z+=size){
+                // Checks if there is an object at the index and checks if the player is touching that location and that it hasn't had a rigidbody assigned to it then it assigns a rb
+                // And sets the drag on the rb
                 if(floor[x,z] != null){
                     if(Physics.CheckBox(
                         new Vector3(x,y,z), 
@@ -50,6 +54,7 @@ public class SpleefFloorGenerator : MonoBehaviour
                         Drag.drag = drag;
                     }
                 }
+                // If the floor tile is below the despawn level then it destroys the tile
                 if(floor[x,z] != null){
                     if(floor[x,z].transform.position.y <= despawnLevel)
                         Destroy(floor[x,z]);

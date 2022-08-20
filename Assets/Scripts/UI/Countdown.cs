@@ -12,13 +12,19 @@ public class Countdown : MonoBehaviour
     public GameObject player1;
     public GameObject player2;
     float ogCountDown;
+
+    // Sets the time scale to 1, resets the countdown and disables player movement
     void Start(){
         Time.timeScale = 1;
         player1.GetComponent<Movement>().enabled = false;
         player2.GetComponent<MovementController>().enabled = false;
         ogCountDown = countdown;
     }
+
+
     // Update is called once per frame
+
+    // The countdown gets rounded up into an int then sent to the screen and once all the time has passed it will enable players movement and disable the countdown overlay
     void Update()
     {
         

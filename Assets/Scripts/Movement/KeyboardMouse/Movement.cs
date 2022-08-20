@@ -17,6 +17,10 @@ public class Movement : MonoBehaviour
     public Transform jumpCheck;
     bool groundCheck;
 
+    // sets the velocity of the player to be gravity over time
+    // Also checks if we are on the ground to jump again
+
+    // Gets input from the horizontal and vertical input axis (check the input manager) and moves the player in that direction
     void Update()
     {
         velocity.y += gravity * Time.deltaTime;

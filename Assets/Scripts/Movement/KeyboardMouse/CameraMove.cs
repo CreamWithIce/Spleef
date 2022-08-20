@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class CameraMove : MonoBehaviour
 {
+
     public Transform player;
     public int sensetivity = 100;
     float xRotation;
+    // Locks the cursor so it doesn't move offscreen
     void Start(){
         Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
+    // Gets the mouse input from the input manager and clamps the rotation along the x axis
     void Update()
     {
         float x = Input.GetAxis("Mouse X") * sensetivity * Time.deltaTime;

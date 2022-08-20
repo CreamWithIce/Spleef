@@ -16,6 +16,7 @@ public class Gameover : MonoBehaviour
     public TMP_Text winText;
 
     // Update is called once per frame
+    // Checks if player 1 or player 2 is lower than the death height and shows who won and if both are at the death height it is a draw
     void Update()
     {
         if(player1.transform.position.y <= deathHeight){

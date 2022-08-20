@@ -19,6 +19,8 @@ public class MovementController : MonoBehaviour
 
     void Update()
     {
+        // Sets the players y velocity to be gravity over time
+        // Checks if there is ground beneath using a checksphere
         velocity.y += gravity * Time.deltaTime;
 
         groundCheck = Physics.CheckSphere(jumpCheck.position,size,layer);
@@ -27,13 +29,20 @@ public class MovementController : MonoBehaviour
             velocity.y = -2f;
         }
 
+        // If the player has pressed the jump key (check input manager)
         if(groundCheck && Input.GetButtonDown("ControllerJump")){
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
         
+
+        // Get the joystick axis for the movement (bound to x axis currently)
+        //* NOTE: Currently doesn't work on playstation controllers *
+
         float x = Input.GetAxis("HorizontalJoystick");
         float z = Input.GetAxis("VerticalJoystick");
 
+
+        // checks if the controller joystick is moved outside the deadzone
         if(x < joystickDeadZone && x > -joystickDeadZone){
             x = 0f;
         }
@@ -42,6 +51,7 @@ public class MovementController : MonoBehaviour
             z = 0f;
         }
         
+        // Moves the player
         Vector3 move = x * transform.right + z * transform.forward;
         
         player.Move(move * Time.deltaTime * speed);
