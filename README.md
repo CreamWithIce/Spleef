@@ -16,4 +16,5 @@ Press "Select directory".\
 Open it in unity hub.
 
 ### Licensing
-This project was licensed under the 2022 MIT license. Check the LICENSE file for details.
+This project was licensed under the 2022 MIT license. \
+Check the LICENSE file for details.
