@@ -36,7 +36,6 @@ public class MovementController : MonoBehaviour
         
 
         // Get the joystick axis for the movement (bound to x axis currently)
-        //* NOTE: Currently doesn't work on playstation controllers *
 
         float x = Input.GetAxis("HorizontalJoystick");
         float z = Input.GetAxis("VerticalJoystick");
